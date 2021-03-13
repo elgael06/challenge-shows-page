@@ -24,7 +24,7 @@ const returnModal = (value:iModal ):iModal => {
     }
 };
 
-const effectsState = ( state=initStateEffects,actions:iActionEffects ):StateEffects => {
+export const effectsState = ( state=initStateEffects,actions:iActionEffects ):StateEffects => {
     switch (actions.type) {
         case types.effectsTypes.OPEN_MODAL:
             return {
