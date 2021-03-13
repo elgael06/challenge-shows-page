@@ -8,13 +8,13 @@ import { Button, Container, Form, FormControl, Nav, Navbar } from 'react-bootstr
 function MyApp({ Component, pageProps }){
   return <div style={{backgroundColor:'#00000020'}}> <Provider store={store}>
     <Navbar bg="dark" variant="dark" expand="sm" fixed='top' >
-      <Navbar.Brand href="">Shows TV'S</Navbar.Brand>
+      <Navbar.Brand href="/">Shows TV'S</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link href='/' >Popular</Nav.Link>
-        <Nav.Link href='/' >top</Nav.Link>
-        <Nav.Link href='/' >today</Nav.Link>
+        <Nav.Link href='/Popular' >Popular</Nav.Link>
+        <Nav.Link href='/Top' >Top</Nav.Link>
+        <Nav.Link href='/Today' >Today</Nav.Link>
       </Nav>
         <Form inline >          
           <FormControl type="text" placeholder="TV show" className="mr-sm-2" />
@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }){
       </Form>
       </Navbar.Collapse>
       </Navbar>
-    <Container style={{display:'flex',position:'relative',padding:'70px 8px',backgroundColor:'#ffffff'}} fluid='lg'>
+    <Container style={{display:'flex',minHeight:700,position:'relative',padding:'70px 8px',backgroundColor:'#ffffff'}} fluid='lg'>
       <Component {...pageProps} />
     </Container>
       <Navbar bg="light" variant="light" expand="lg" fixed='bottom' style={{justifyContent:'center'}}>
