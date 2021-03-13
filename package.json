@@ -1,5 +1,5 @@
 {
-  "name": "skydrop-x",
+  "name": "challenge-shows-page",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,8 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ionic/react": "^5.6.0",
-    "antd": "^4.13.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "ionic": "^5.4.16",
