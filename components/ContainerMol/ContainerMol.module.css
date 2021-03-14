@@ -1,0 +1,7 @@
+.container_mol {
+  display: flex;
+  min-height: 700px;
+  position: relative;
+  padding: 70px 8px;
+  background-color: #ffffff;
+}
