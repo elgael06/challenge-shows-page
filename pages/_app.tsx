@@ -12,5 +12,4 @@ function MyApp({ Component, pageProps }){
     </LayoutOrg>
   </Provider>
 }
-
 export default MyApp

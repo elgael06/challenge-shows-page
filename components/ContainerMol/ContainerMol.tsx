@@ -7,7 +7,7 @@ const ContainerMol = ({
     children=null
 }) => {
     
-    return (<Container className={styles.container_mol} >
+    return (<Container className={styles.container_mol} fluid='md' >
         {children}
     </Container>);
 }

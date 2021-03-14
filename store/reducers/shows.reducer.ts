@@ -17,7 +17,9 @@ export const initialStateShowResult: iAllOptionsShowsResult = {
     
 };
 
-export const showResult = (state=initialStateShowResult,actions:actionsShowResult):iAllOptionsShowsResult => {
+export const showResult = (state = initialStateShowResult, actions: actionsShowResult): iAllOptionsShowsResult => {
+    console.log(actions);
+    
     switch (actions.type) {
         case types.showResult.GET_SHOWS_POPULAR:
             return { ...state, popular: actions.listResult}    
