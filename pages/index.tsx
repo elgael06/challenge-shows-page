@@ -6,7 +6,6 @@ import { setFavoriteShow, setTodayShow, setTopShow } from '../store/actions/show
 import { iShow } from '../interfaces/iStateShow';
 import ConterntShow from  '../components/Shows/ConterntShow/ConterntShow';
 const  CardShow = lazy(()=> import( '../components/Shows/CardShow/CardShow'));
-import Skeleton from 'react-loading-skeleton';
 import ShowLoadingPage from '../components/Shows/CardShow/ShowLoadingPage';
 
 export default function Home() {
