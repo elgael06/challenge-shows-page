@@ -7,7 +7,6 @@ import { iShow } from '../interfaces/iStateShow';
 import ConterntShow from '../components/Shows/ConterntShow/ConterntShow';
 import CardShow from '../components/Shows/CardShow/CardShow';
 
-
 export default function Home() {
   const disparch = useDispatch();
   const {popular,today,top} = useSelector(state => state.showResult);
@@ -19,7 +18,7 @@ export default function Home() {
     const favRes   = await getFavoriteShowsList().catch();
     const topRes   = await getTopShowsList().catch();
     const todayRes = await getTdayShowsList().catch();
-    
+
     disparch(setFavoriteShow(favRes));
     disparch(setTopShow(topRes));
     disparch(setTodayShow(todayRes));
