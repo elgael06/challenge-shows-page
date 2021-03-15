@@ -10,4 +10,4 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Page example open [GO...](https://challenge-shows-app.vercel.app/)
+Page example open [GO...](http://showstv.mya-app.tech/)
