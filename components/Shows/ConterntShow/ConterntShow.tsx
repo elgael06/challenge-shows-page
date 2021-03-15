@@ -7,7 +7,7 @@ const ConterntShow = ({ children, title }) => <>
             display: 'flex',
             flexWrap: 'wrap',
             placeContent: 'space-evenly'
-        }}>
+        }} md>
             {children}
         </Col>
     </Row>

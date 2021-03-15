@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const NavbarComp = () => {
     
-    return (<Navbar bg="dark" variant="dark" expand="sm" fixed='top' >
+    return (<Navbar bg="dark" variant="dark" expand="md" fixed='top' >
       <Link href='/'> 
         <Navbar.Brand href='/' >Shows TV'S</Navbar.Brand>
       </Link>

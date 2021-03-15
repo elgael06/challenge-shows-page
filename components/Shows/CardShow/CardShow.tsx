@@ -43,7 +43,7 @@ const CardShow = ({
                 left: 0,
                 right: 0,
                 background: 'rgb(0 0  0 / 85%)', color: '#fff'
-            }} >
+            }} title={subtitle} >
             <CardShowTitleMol
                 title={title}
                 subtitle={subtitle}
