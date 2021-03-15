@@ -1,11 +1,13 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getFavoriteShowsList, getTdayShowsList, getTopShowsList } from '../api/results/results';
 import { setFavoriteShow, setTodayShow, setTopShow } from '../store/actions/show.action';
 import { iShow } from '../interfaces/iStateShow';
-import ConterntShow from '../components/Shows/ConterntShow/ConterntShow';
-import CardShow from '../components/Shows/CardShow/CardShow';
+import ConterntShow from  '../components/Shows/ConterntShow/ConterntShow';
+const  CardShow = lazy(()=> import( '../components/Shows/CardShow/CardShow'));
+import Skeleton from 'react-loading-skeleton';
+import ShowLoadingPage from '../components/Shows/CardShow/ShowLoadingPage';
 
 export default function Home() {
   const disparch = useDispatch();
@@ -15,13 +17,15 @@ export default function Home() {
     _init();
   },[]);
   const _init = async () => {
-    const favRes   = await getFavoriteShowsList().catch();
-    const topRes   = await getTopShowsList().catch();
-    const todayRes = await getTdayShowsList().catch();
+    setTimeout(async () => { 
+      const favRes   = await getFavoriteShowsList().catch();
+      const topRes   = await getTopShowsList().catch();
+      const todayRes = await getTdayShowsList().catch();
+      disparch(setFavoriteShow(favRes));
+      disparch(setTopShow(topRes));
+      disparch(setTodayShow(todayRes));
+    },1000)
 
-    disparch(setFavoriteShow(favRes));
-    disparch(setTopShow(topRes));
-    disparch(setTodayShow(todayRes));
   }
 
   return [
@@ -33,8 +37,8 @@ export default function Home() {
       title={value.title}
       key={value.title}
     >
-      {value.data.results
-        .map((e: iShow) => <CardShow
+      {value.data.results.length!==0 ? value.data.results
+        .map((e: iShow) => <Suspense key= {`${value.title}${e.id}`} fallback={  <ShowLoadingPage  /> }> <CardShow
         id={e.id}
         key        = {`${value.title}${e.id}`}
         title      = {e.name}
@@ -46,6 +50,13 @@ export default function Home() {
         popularity = {e.popularity}
         votos      = {e.vote_average}
         lang       = {e.original_language}
-      />)}
+        /></Suspense>) :
+        <>
+          <ShowLoadingPage />
+          <ShowLoadingPage />
+          <ShowLoadingPage />
+          <ShowLoadingPage />
+          <ShowLoadingPage />
+      </>}
     </ConterntShow>);
 }
