@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import { Badge, Card, Col, Row, Tooltip } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getFavoriteShowsList, getTdayShowsList, getTopShowsList } from '../api/results/results';
@@ -19,9 +19,9 @@ export default function Home() {
   const _init = async () => {
     
 
-    const favRes   = await getFavoriteShowsList();
-    const topRes   = await getTopShowsList();
-    const todayRes = await getTdayShowsList();
+    const favRes   = await getFavoriteShowsList().catch();
+    const topRes   = await getTopShowsList().catch();
+    const todayRes = await getTdayShowsList().catch();
     disparch(setFavoriteShow(favRes));
     disparch(setTopShow(topRes));
     disparch(setTodayShow(todayRes));
@@ -38,6 +38,10 @@ export default function Home() {
             firstday={e.first_air_date}
             poster={e.poster_path}
             key={`pop${e.id}`}
+            country={e.origin_country}
+            popularity={e.popularity}
+            votos={e.vote_average}
+            lang={e.original_language}
           />
         })}
       </ConterntShow>
@@ -51,6 +55,10 @@ export default function Home() {
             firstday={e.first_air_date}
             poster={e.poster_path}
             key={`pop${e.id}`}
+            country={e.origin_country}
+            popularity={e.popularity}
+            votos={e.vote_average}
+            lang={e.original_language}
           />
         })}
       </ConterntShow>      
@@ -64,6 +72,10 @@ export default function Home() {
             firstday={e.first_air_date}
             poster={e.poster_path}
             key={`pop${e.id}`}
+            country={e.origin_country}
+            popularity={e.popularity}
+            votos={e.vote_average}
+            lang={e.original_language}
           />
         })}
     </ConterntShow>
@@ -90,20 +102,33 @@ const CardShow = ({
   subtitle = '',
   body = '',
   firstday = '00/00/0000',
-  poster=''
-}) => <Card style={{ marginTop: 5, width: 210, height: 330 }}>
-    <Card.Img src={ `${urlImage}${poster}`} alt={title} />
-  <Card.Body style={{display:'none'}} >
-    <Card.Title>{ `${title.slice(0, 20)} ${title.length > 20 ? '...': ''}` || 'name'}</Card.Title>
-      <Card.Subtitle
-        className="mb-2 text-muted"
-        style={{ height: 20 }}>
-        {`${subtitle.slice(0, 13)} ${subtitle.length > 13 ? '...': ''}` || 'original_name'}
-      </Card.Subtitle>
-      <Card.Text style={{ height: 140, marginTop: 30 }}> {body.slice(0, 100) || 'overview'}</Card.Text>
-  </Card.Body>
-      <Card.Footer style={{display:'flex',flexDirection:'row'}}>
-        <Card.Link href="#">{firstday || 'first_air_date'}</Card.Link>
-        <Card.Link href="#">details</Card.Link>
-      </Card.Footer>
-</Card>;
+  poster = '',
+  country=[],
+  popularity = 0,
+  votos = '',
+  lang='',
+}) => {
+  const [show, setShow] = useState(false);
+  const handleOver = () => {
+    setShow(true);
+  }
+  const handleOut = () => {
+    setShow(false);
+  }
+  
+  return <Card style={{ marginTop: 10, width: 210, height: 300 }} onPointerOver={handleOver} onPointerOut={handleOut}>
+    <Card.Body style={{ display: show ? '' : 'none', zIndex: 999, position: 'absolute', top: 0, bottom:0,left:0,right:0,background:'rgb(0 155  155 / 85%)',color:'#fff'}} >
+      <Card.Title>{ `${title.slice(0, 20)} ${title.length > 20 ? '...': ''}` || 'name'}</Card.Title>
+      <Card.Text
+        className="mb-2 text-muted">
+        <b style={{color:'#00000095' }}>{`${subtitle.slice(0, 13)} ${subtitle.length > 13 ? '...': ''}` || 'original_name'}</b>
+      </Card.Text>
+        <Card.Text style={{ height: 95 }}> {`${body.slice(0, 70)} ${body.length > 70 ? '...': ''}` || 'overview'}</Card.Text>
+        <Card.Subtitle >Emicion {firstday || 'first_air_date'}</Card.Subtitle>
+        <Card.Text >Origen {country || 'NA'} | {lang}</Card.Text>
+        <Card.Text >vistas {popularity || 'NA'}</Card.Text>
+    </Card.Body>
+    <Card.Img style={{ height: 'calc(100% - 18px)', width: '100%' }} src={`${urlImage}${poster}`} alt={title} />
+    <Badge variant="primary" style={{marginTop:1}}> Votos { votos}/10</Badge>
+  </Card>;
+}
