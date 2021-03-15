@@ -1,11 +1,10 @@
 
 import { useState } from 'react';
-import { Badge, Card } from 'react-bootstrap';
-import { urlImage } from '../../../constants/apiData';
-import style from './CardShow.module.css'
+import { Card } from 'react-bootstrap';
 import CardShowBodyMol from './CardShowBodyMol';
 import CardShowPortadaMol from './CardShowPortadaMol';
 import CardShowTitleMol from './CardShowTitleMol';
+import Link from 'next/link'
 const CardShow = ({
     id=0,
     title = '',
@@ -62,7 +61,7 @@ const CardShow = ({
             title={title}
             votos={votos}
         />
-        <Card.Link style={{position:'absolute', bottom:-2,right:15,zIndex:999,color:'#FFF'}} href={'/show/'+id} >mas...</Card.Link>
+        <span style={{position:'absolute', bottom:-2,right:15,zIndex:999,color:'#FFF'}}><Link href={'/show/'+id} >mas...</Link></span>
     </Card>;
 }
 

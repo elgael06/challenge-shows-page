@@ -28,13 +28,13 @@ export default function Home() {
   }
 
   return [
-    { data : popular  , title : 'Favorites shows' },
-    { data : top      , title : 'Popular shows' },
-    { data : today    , title : 'Today shows' }
+    { data: popular   , title : `Favorites shows / ${popular.total_pages}`, key:'popular' },
+    { data : top      , title : `Popular show /  ${top.total_pages}`, key:'top' },
+    { data : today    , title : `Today shows / ${today.total_pages}`, key:'today' }
   ]
     .map((value) => <ConterntShow
       title={value.title}
-      key={value.title}
+      key={value.key}
     >
       {value.data.results.length!==0 ? value.data.results
         .map((e: iShow) => <Suspense key= {`${value.title}${e.id}`} fallback={  <ShowLoadingPage  /> }> <CardShow
@@ -51,11 +51,7 @@ export default function Home() {
         lang       = {e.original_language}
         /></Suspense>) :
         <>
-          <ShowLoadingPage />
-          <ShowLoadingPage />
-          <ShowLoadingPage />
-          <ShowLoadingPage />
-          <ShowLoadingPage />
+          <ShowLoadingPage count={5} />
       </>}
     </ConterntShow>);
 }
