@@ -117,7 +117,7 @@ const CardShow = ({
   }
   
   return <Card style={{ marginTop: 10, width: 210, height: 300 }} onPointerOver={handleOver} onPointerOut={handleOut}>
-    <Card.Body style={{ display: show ? '' : 'none', zIndex: 999, position: 'absolute', top: 0, bottom:0,left:0,right:0,background:'rgb(0 155  155 / 85%)',color:'#fff'}} >
+    <Card.Body className='background-card-info' style={{ display: show ? '' : 'none', zIndex: 999, position: 'absolute', top: 0, bottom:0,left:0,right:0,background:'rgb(0 123  255 / 95%)',color:'#fff'}} >
       <Card.Title>{ `${title.slice(0, 20)} ${title.length > 20 ? '...': ''}` || 'name'}</Card.Title>
       <Card.Text
         className="mb-2 text-muted">

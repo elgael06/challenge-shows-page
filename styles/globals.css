@@ -14,3 +14,16 @@ a {
 * {
   box-sizing: border-box;
 }
+.background-card-info {
+  transform: translateY(0%);
+  transition: all 2s ease-in;
+}
+.background-card-info:hover {
+  transform: translateY(0%);
+  transition: all 2s ease-in;
+  display: inline-block;
+}
+
+.background-card-info[data-animation="to-top"] a span:last-child {
+  transform: translateY(100%);
+}
