@@ -7,7 +7,7 @@ const CardShowTitleMol = ({
 }) => <>
     <Card.Title>{ `${title.slice(0, 20)} ${title.length > 20 ? '...': ''}` || 'name'}</Card.Title>
     <Card.Text className="mb-2 text-muted">
-            <b style={{ color: '#00000095' }}>
+            <b style={{ color: '#FFFFFF95' }}>
                 {`${subtitle.slice(0, 13)} 
                     ${subtitle.length > 13
                         ? '...'

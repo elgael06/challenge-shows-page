@@ -7,6 +7,7 @@ import CardShowBodyMol from './CardShowBodyMol';
 import CardShowPortadaMol from './CardShowPortadaMol';
 import CardShowTitleMol from './CardShowTitleMol';
 const CardShow = ({
+    id=0,
     title = '',
     subtitle = '',
     body = '',
@@ -25,8 +26,25 @@ const CardShow = ({
     setShow(false);
     }
 
-    return <Card style={{ marginTop: 10, width: 210, height: 300 }} onPointerOver={handleOver} onPointerOut={handleOut}>
-        <Card.Body className='background-card-info' style={{ display: show ? '' : 'none', zIndex: 999, position: 'absolute', top: 0, bottom:0,left:0,right:0,background:'rgb(0 123  255 / 95%)',color:'#fff'}} >
+    return <Card
+        style={{ marginTop: 10, width: 210, height: 300 }}
+        onPointerOver={handleOver}
+        onTouchStart={handleOver}
+        onPointerOut={handleOut}
+        onTouchEnd={handleOut}
+    >
+        <Card.Body
+            className='background-card-info'
+            style={{
+                display: show ? '' : 'none',
+                zIndex: 999,
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                background: 'rgb(0 0  0 / 85%)', color: '#fff'
+            }} >
             <CardShowTitleMol
                 title={title}
                 subtitle={subtitle}
@@ -44,6 +62,7 @@ const CardShow = ({
             title={title}
             votos={votos}
         />
+        <Card.Link style={{position:'absolute', bottom:-2,right:15,zIndex:999,color:'#FFF'}} href={'/show/'+id} >mas...</Card.Link>
     </Card>;
 }
 

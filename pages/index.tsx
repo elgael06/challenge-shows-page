@@ -34,7 +34,8 @@ export default function Home() {
       key={value.title}
     >
       {value.data.results
-      .map((e: iShow) => <CardShow
+        .map((e: iShow) => <CardShow
+        id={e.id}
         key        = {`${value.title}${e.id}`}
         title      = {e.name}
         subtitle   = {e.original_name}

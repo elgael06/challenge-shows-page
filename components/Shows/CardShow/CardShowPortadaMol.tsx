@@ -8,7 +8,7 @@ const CardShowPortadaMol = ({
     votos,
 }) => <>
     <Card.Img style={{ height: 'calc(100% - 18px)', width: '100%' }} src={`${urlImage}${poster}`} alt={title} />
-    <Badge variant="primary" style={{marginTop:1}}> Votos { votos }/10</Badge>
+    <Badge variant="secondary" style={{marginTop:1}}> Votos { votos }/10</Badge>
 </>;
 
 export default CardShowPortadaMol;
