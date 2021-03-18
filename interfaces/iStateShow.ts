@@ -26,10 +26,12 @@ export interface iAllOptionsShowsResult {
     top         : iShowResults;
     today       : iShowResults;
     selected    ?: iShow;
+    saved       : number[];
 }
 
 export interface actionsShowResult {
     type: string;
     listResult: iShowResults;
-    showId : iShow
+    showId: iShow;
+    savedList: number[];
 }

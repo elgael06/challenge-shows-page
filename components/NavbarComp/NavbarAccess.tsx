@@ -12,6 +12,7 @@ const accesos = [
 ];
 const NavbarAccess = () =>  (<Nav className="mr-auto">
     {accesos.map(e => <Link
+        key={e.link}
         href={e.link} >
         <Nav.Item
             className={styles.navbar_access}>

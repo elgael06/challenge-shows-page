@@ -7,9 +7,9 @@ import LayoutOrg from '../components/Layout/LayoutOrg';
 
 function MyApp({ Component, pageProps }){
   return <Provider store={store}>
-    <head>
+    <header>
       <title>Shows TV'S</title>
-    </head>
+    </header>
     <LayoutOrg>
       <Component {...pageProps} />
     </LayoutOrg>

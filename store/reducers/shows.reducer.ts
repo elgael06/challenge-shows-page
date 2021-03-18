@@ -9,15 +9,26 @@ export const initStateShows:iShowResults = {
     total_results: 0
 }  
 
+export const getLocalStorangeShows = () => {
+    if (typeof window !== "undefined") {
+        const listSaved = localStorage.getItem('showsListSaved');
+        !listSaved && localStorage.setItem('showsListSaved', '[]');
+        const sto = JSON.parse( localStorage.getItem('showsListSaved'));
+        return sto;
+    }
+    return [];
+}
 export const initialStateShowResult: iAllOptionsShowsResult = {
     popular: initStateShows,
     today: initStateShows,
-    top:initStateShows,
+    top: initStateShows,
+    saved:getLocalStorangeShows(),
     selected:null
     
 };
 
 export const showResult = (state = initialStateShowResult, actions: actionsShowResult): iAllOptionsShowsResult => {
+    
     switch (actions.type) {
         case types.showResult.GET_SHOWS_POPULAR:
             return { ...state, popular: actions.listResult}    
@@ -29,6 +40,8 @@ export const showResult = (state = initialStateShowResult, actions: actionsShowR
             return {...state,selected:actions.showId}
         case types.showResult.REMOVE_SHOWS_ID:
             return {...state,selected:null}
+        case types.showResult.CHANGE_SAVED:            
+            return { ...state, saved: actions.savedList };
         default: return state;
     }
 }
