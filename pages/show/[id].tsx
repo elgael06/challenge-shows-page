@@ -19,20 +19,17 @@ const ShowID = ({ id }) => {
     return (<>
         <div>
             <h3>Detalles de serie</h3>
-            <BotonFavorito
-                showId= { id }
-            />
+            <BotonFavorito showId= { id } />
         </div>
         <Row >
             <Col><Skeleton height={240} /></Col>
         </Row>
-        <Row xs={7}>
-            <Col xs={2}><Skeleton height={200} /></Col>
-            <Col xs={10}>
-                <Skeleton height={200}  />
-            </Col>
+        <Row >
+            <Col xs={4}><Skeleton height={480} /></Col>
+            <Col xs={8}><Skeleton height={30} count={14} /></Col>
         </Row>
         <Row>
+            <Col ><Skeleton height={90} /></Col>
         </Row>
     </>);
 }
