@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { getDetailsShows } from "../../api/details/details";
 import { addSelected,removeSelected } from "../../store/actions/show.action";
-import TitleDetalle from "../../components/Detalles/TitleDetalle";
 import PortadaDetalle from "../../components/Detalles/PortadaDetalle";
 import DetalleSow from "../../components/Detalles/DetalleSow";
 
@@ -20,7 +19,6 @@ const ShowID = ({ id }) => {
         dispatch(addSelected(data));
     }
     return (<>
-        <TitleDetalle id={id} />
         <PortadaDetalle />
         <DetalleSow />
     </>);

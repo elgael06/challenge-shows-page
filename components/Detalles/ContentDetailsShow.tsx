@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux';
 import { Card, Col } from "react-bootstrap";
 import LabelText from '../generics/LabelText';
+import TitleDetalle from './TitleDetalle';
 
 const ContentDetailsShow = () => {
     const { selected  } = useSelector(state => state.showResult);
     
     return (
         <Col md={8}>
+            <TitleDetalle id={selected['id']} />
             {[
                 {title:'Nombre',text:selected['name']},
                 {title:'Pagina',text:<a href={selected['homepage']}>{ selected['homepage']}</a>},

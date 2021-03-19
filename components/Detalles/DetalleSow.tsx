@@ -13,6 +13,7 @@ const DetalleSow = () => {
     const { selected  } = useSelector(state => state.showResult);
     
     return (<Row >
+
         {selected ? <Col>
             <Card style={{marginTop:20 }}>
                 <Row>
