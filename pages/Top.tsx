@@ -1,11 +1,11 @@
 import { Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getFavoriteShowsList, getTdayShowsList, getTopShowsList } from "../api/results/results";
+import { getTopShowsList } from "../api/results/results";
 import CardShow from "../components/Shows/CardShow/CardShow";
 import ShowLoadingPage from "../components/Shows/CardShow/ShowLoadingPage";
 import ConterntShow from "../components/Shows/ConterntShow/ConterntShow";
 import { iShow } from "../interfaces/iStateShow";
-import { setFavoriteShow, setTodayShow, setTopShow } from "../store/actions/show.action";
+import { setTopShow } from "../store/actions/show.action";
 
 
 const TopsPage = () => {

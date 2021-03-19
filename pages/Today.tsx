@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getFavoriteShowsList, getTdayShowsList } from "../api/results/results";
+import { getTdayShowsList } from "../api/results/results";
 import CardShow from "../components/Shows/CardShow/CardShow";
 import ShowLoadingPage from "../components/Shows/CardShow/ShowLoadingPage";
 import ConterntShow from "../components/Shows/ConterntShow/ConterntShow";
