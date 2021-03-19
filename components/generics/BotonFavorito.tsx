@@ -7,17 +7,18 @@ import { removeShow, savedShow } from '../../store/actions/show.action';
 const BotonFavorito = ({ showId }) => {
     const { saved } = useSelector(state => state.showResult);
     const disparch = useDispatch();
-    const existe = () => saved.findIndex(value => value == showId) >= 0 ? 'remover' : 'agregar';
+    const existe = () => saved.findIndex(value => value == showId) >= 0 ;
     const handleButton = () => {
-        existe() == 'agregar' ?
-            disparch(savedShow(showId)) :
-            disparch(removeShow(showId));
+        existe()  ?
+            disparch(removeShow(showId)) :
+            disparch(savedShow(showId));
     }
     return (
         <Button
+            title='favorito'
             onClick={handleButton}
-            className={existe() == 'agregar' ? 'btn btn-primary' : 'btn btn-danger'}
-        >{existe()} Favorito</Button>
+            className={existe()  ? 'btn btn-danger' : 'btn btn-primary'}
+        >{existe() ? 'remover' : 'agregar'}</Button>
     );
 }
 export default BotonFavorito;

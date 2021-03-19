@@ -1,5 +1,5 @@
 import { getLocalStorangeShows } from "../reducers/shows.reducer";
-import { CHANGE_SAVED, GET_SHOWS_POPULAR, GET_SHOWS_TODAY, GET_SHOWS_TOP_RATE } from "../types/shows.types";
+import { CHANGE_SAVED, GET_SHOWS_ID, GET_SHOWS_POPULAR, GET_SHOWS_TODAY, GET_SHOWS_TOP_RATE, REMOVE_SHOWS_ID } from "../types/shows.types";
 
 
 export const setFavoriteShow = ({status,data}) => {
@@ -15,6 +15,24 @@ export const setTopShow = ({status,data}) => {
 export const setTodayShow = ({status,data}) => {
     return async dispatch => {
         status ==200 ? dispatch({type:GET_SHOWS_TODAY,listResult:data}) : null;
+    }
+}
+
+export const addSelected = (data) => {
+    
+    return dispatch => {
+        dispatch({
+            type: GET_SHOWS_ID,
+            showId:data,
+        });
+    }
+}
+export const removeSelected = () => {
+    
+    return dispatch => {
+        dispatch({
+            type: REMOVE_SHOWS_ID,
+        });
     }
 }
 
