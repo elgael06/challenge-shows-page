@@ -11,7 +11,7 @@ const ContentDetailsShow = () => {
             <TitleDetalle id={selected['id']} />
             {[
                 {title:'Nombre',text:selected['name']},
-                {title:'Pagina',text:<a href={selected['homepage']}>{ selected['homepage']}</a>},
+                {title:'Pagina',text:<a href={selected['homepage']} target="_blank">{ selected['homepage']}</a>},
                 {title:'Popularidad',text:selected['popularity']},
                 {title:'Puntos',text:`${selected['vote_average']}/10`},
                 {title:'Episodios',text:selected['number_of_episodes']},
