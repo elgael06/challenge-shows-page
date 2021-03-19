@@ -1,11 +1,11 @@
 import { Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getFavoriteShowsList } from "../api/results/results";
+import { getFavoriteShowsList, getTdayShowsList } from "../api/results/results";
 import CardShow from "../components/Shows/CardShow/CardShow";
 import ShowLoadingPage from "../components/Shows/CardShow/ShowLoadingPage";
 import ConterntShow from "../components/Shows/ConterntShow/ConterntShow";
 import { iShow } from "../interfaces/iStateShow";
-import { setFavoriteShow } from "../store/actions/show.action";
+import { setTodayShow } from "../store/actions/show.action";
 
 
 const Todays = () => {
@@ -17,9 +17,9 @@ const Todays = () => {
     },[]);
 
     const _init = async () => {
-        const favRes = await getFavoriteShowsList().catch();
+        const favRes = await getTdayShowsList().catch();
 
-        disparch(setFavoriteShow(favRes));
+        disparch(setTodayShow(favRes));
     }
     
     return (<ConterntShow
