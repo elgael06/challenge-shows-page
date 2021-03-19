@@ -109,7 +109,7 @@ export const removeShow = (id) => {
  * @param y 
  * @returns -1| 1
  */
-const functionOrdenAlfabetico = (x:iShow, y:iShow) => x.name > y.name ? -1 : 1;
+const functionOrdenAlfabetico = (x:iShow, y:iShow) => x.name < y.name ? -1 : 1;
 const functionOrdenVoto = (x:iShow, y:iShow) => x.vote_average > y.vote_average ? -1 : 1;
 
 /**
@@ -118,8 +118,8 @@ const functionOrdenVoto = (x:iShow, y:iShow) => x.vote_average > y.vote_average 
  * @returns 
  */
 export const orderAlfabeticoFavoriteShow = (data:iShowResults) => {
-    const lista = data.results.sort(functionOrdenAlfabetico);
-    return dispatch => dispatch({ type: GET_SHOWS_POPULAR, listResult: lista });
+    data.results.sort(functionOrdenAlfabetico);
+    return dispatch => dispatch({ type: GET_SHOWS_POPULAR, listResult: data });
 }
 /**
  * oerdena el listado de show por votos.
@@ -127,8 +127,8 @@ export const orderAlfabeticoFavoriteShow = (data:iShowResults) => {
  * @returns 
  */
 export const orderVotosFavoriteShow = (data:iShowResults) => {
-    const lista = data.results.sort(functionOrdenVoto);
-    return dispatch => dispatch({ type: GET_SHOWS_POPULAR, listResult: lista });
+    data.results.sort(functionOrdenVoto);
+    return dispatch => dispatch({ type: GET_SHOWS_POPULAR, listResult: data });
 }
 /**
  * oerdena el listado de show de forma alfabetica.
@@ -136,8 +136,8 @@ export const orderVotosFavoriteShow = (data:iShowResults) => {
  * @returns 
  */
 export const orderAlfabeticoTopShow = (data:iShowResults) => {
-    const lista = data.results.sort(functionOrdenAlfabetico);
-    return dispatch => dispatch({ type: GET_SHOWS_TOP_RATE, listResult: lista });
+    data.results.sort(functionOrdenAlfabetico);
+    return dispatch => dispatch({ type: GET_SHOWS_TOP_RATE, listResult: data });
 }
 /**
  * oerdena el listado de show por votos.
@@ -145,8 +145,8 @@ export const orderAlfabeticoTopShow = (data:iShowResults) => {
  * @returns 
  */
 export const orderVotosTopShow = (data:iShowResults) => {
-    const lista = data.results.sort(functionOrdenVoto);
-    return dispatch => dispatch({ type: GET_SHOWS_TOP_RATE, listResult: lista });
+    data.results.sort(functionOrdenVoto);
+    return dispatch => dispatch({ type: GET_SHOWS_TOP_RATE, listResult: data });
 }
 /**
  * oerdena el listado de show de forma alfabetica.
@@ -154,8 +154,8 @@ export const orderVotosTopShow = (data:iShowResults) => {
  * @returns 
  */
 export const orderAlfabeticoTodayShow = (data:iShowResults) => {
-    const lista = data.results.sort(functionOrdenAlfabetico);
-    return dispatch => dispatch({ type: GET_SHOWS_TODAY, listResult: lista });
+    data.results.sort(functionOrdenAlfabetico);
+    return dispatch => dispatch({ type: GET_SHOWS_TODAY, listResult: data });
 }
 /**
  * oerdena el listado de show por votos.
@@ -163,6 +163,6 @@ export const orderAlfabeticoTodayShow = (data:iShowResults) => {
  * @returns 
  */
 export const orderVotosTodayShow = (data:iShowResults) => {
-    const lista = data.results.sort(functionOrdenVoto);
-    return dispatch => dispatch({ type: GET_SHOWS_TODAY, listResult: lista }); 
+    data.results.sort(functionOrdenVoto);
+    return dispatch => dispatch({ type: GET_SHOWS_TODAY, listResult: data }); 
 }
