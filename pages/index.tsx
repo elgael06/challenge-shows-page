@@ -22,10 +22,12 @@ export default function Home() {
       const favRes = await getFavoriteShowsList().catch();
       const topRes = await getTopShowsList().catch();
       const todayRes = await getTdayShowsList().catch();
+
       disparch(setFavoriteShow(favRes));
       disparch(setTopShow(topRes));
       disparch(setTodayShow(todayRes));
-    }, 1000);
+      
+    }, 10);
   }
   const obtenerVerDespues = async () => {
     const dataList = [];

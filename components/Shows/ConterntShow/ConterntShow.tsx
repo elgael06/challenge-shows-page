@@ -1,7 +1,13 @@
 import { Col, Row } from "react-bootstrap";
+import OrderButtonContent from "../CardShow/OrderButtonContent";
 
 const ConterntShow = ({ children, title }) => <>
-    <h4 style={{ color: '#00000070' }}>{title}</h4>
+    <Row>
+        <Col sm={9}>
+            <h4 style={{ color: '#00000070' }}>{title}</h4>
+        </Col>
+        <OrderButtonContent />
+    </Row>
     <Row >
         <Col style={{
             display: 'flex',
