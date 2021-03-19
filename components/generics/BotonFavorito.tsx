@@ -25,7 +25,7 @@ const BotonFavorito = ({ showId='' }) => {
             onClick={handleButton}
             variant={status ? 'danger' : 'secondary'}
             size='sm'
-        >{status ? 'remover' : 'agregar' }</Button>
+        >{status ? 'remover' : 'agregar' } favoritos</Button>
     );
 }
 export default BotonFavorito;
